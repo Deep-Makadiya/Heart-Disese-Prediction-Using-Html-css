@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Heart Disease Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 20px;
+            /* background-image: url('#');         put the background image for heart disese */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        h2 {
+            color: #333;
+        }
+        form {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 500px;
+            margin: 0 auto;
+            transition: transform 0.3s ease-in-out;
+        }
+        form:hover {
+            transform: scale(1.05);
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+        label:hover {
+            color: #007bff;
+        }
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: border-color 0.3s ease-in-out;
+        }
+        input[type="number"]:focus,
+        select:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #28a745;
+        }
+
+
+
+
+
+
+        /* header css */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+
+               /*header */
+
+  header {
+    background-color:#333;
+    border-bottom: 1px solid #ccc;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    color: white;
+  }
+  
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+  }
+  
+  .site-name {
+    font-size: 28px;
+    margin: 0;
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  nav li {
+    margin: 0 10px;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  
+  nav a:hover {
+    background-color: black;
+    color: #fff;
+  }
+
+  .logo img {
+    height: 60px;
+   padding-left: 10%;
+    padding-top: 5px;
+  }
+    </style>
+</head>
+<body>
+    <!-- <header>
+        <h1>Check Heart</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about_us.html">About us</a></li>
+                <li><a href="contact_us.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header> -->
+    <header>
+        <div class="logo">
+          <a href="index.html"><img src="images/logo.png" alt="Website Logo" /></a>
+        </div>
+        <div class="header-container">
+          <h1 class="site-name">Heart Check</h1>
+          <nav>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <!-- <li><a href="check_heart.html">Check Heart</a></li> -->
+              <li><a href="about_us.html">About Us</a></li>
+              <li><a href="contact_us.html">Contact Us</a></li>
+              <!-- <li><a href="signup.html">Sign up</a></li>
+              <li><a href="login.html">Login</a></li> -->
+            </ul>
+          </nav>
+        </div>
+      </header>
+<h2>Heart Disease Prediction</h2>
+
+<form id="heartDiseaseForm">
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" required>
+
+    <label for="sex">Sex:</label>
+    <select id="sex" name="sex" required>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+    </select>
+
+    <label for="cp">Chest Pain Type:</label>
+    <select id="cp" name="cp" required>
+        <option value="1">Typical Angina</option>
+        <option value="2">Atypical Angina</option>
+        <option value="3">Non-anginal Pain</option>
+        <option value="4">Asymptomatic</option>
+    </select>
+
+    <label for="trestbps">Resting Blood Pressure (mm Hg):</label>
+    <input type="number" id="trestbps"   name="trestbps" required>
+
+    <label for="chol">Serum Cholesterol (mg/dl):</label>
+    <input type="number" id="chol" name="chol" required>
+
+    <!-- <label for="chol">Fasting Blood Sugar(>120 mg/dl):</label>
+    <input type="number" id="chol" name="chol" required> -->
+
+    <label for="fbs">Fasting Blood Sugar(>120 mg/dl):</label>
+    <select id="fbs" name="fbs" required>
+        <option value="1">True</option>
+        <option value="2">False</option>
+    </select>
+
+    <!-- <label for="chol">Resting Electrocardiographic Results:</label>
+    <input type="number" id="chol" name="chol" required> -->
+
+    <label for="rer">Resting Electrocardiographic Results:</label>
+    <select id="rer" name="rer" required>
+        <option value="1">Normal</option>
+        <option value="2">having ST-T Wave abnormality</option>
+        <option value="3">Showing Probable</option>
+    </select>
+
+    <label for="mhra">Maximum Heart Rate Achieved:</label>
+    <input type="number" id="mhra" name="mhra" required>
+
+
+    <!-- <label for="chol">Exercise Induced Angina:</label>
+    <input type="number" id="chol" name="chol" required> -->
+
+    <label for="Eia">Exercise Induced Angina:</label>
+    <select id="Eia" name="Eia" required>
+        <option value="1">Yes</option>
+        <option value="2">No</option>
+    </select>
+
+    <label for="sdibertr">ST Depression Induced by Exercise Relative to Rest:</label>
+    <input type="number" id="sdibertr" name="sdibertr" required>
+
+    <!-- <label for="chol">Slope of the Peak Exercise ST Segment:</label>
+    <input type="number" id="chol" name="chol" required> -->
+
+    <label for="sopes">Slope of the Peak Exercise ST Segment:</label>
+    <select id="sopes" name="sopes" required>
+        <option value="1">Upsloping</option>
+        <option value="2">Flat</option>
+        <option value="3">Downsloping</option>
+    </select>
+
+    <label for="nmv">Number of Major Vessels (0-3):</label>
+    <input type="number" id="nmv" name="nmv" required>
+
+    <!-- <label for="chol">Thalassemia:</label>
+    <input type="number" id="chol" name="chol" required> -->
+
+    <label for="tha">Thalassemia:</label>
+    <select id="tha" name="tha" required>
+        <option value="1">None</option>
+        <option value="2">Normal</option>
+        <option value="3">Fixed Defect</option>
+        <option value="4">Reversible Defect</option>
+    </select>
+
+    <button type="button" onclick="predictHeartDisease()">Predict</button>
+</form>
+
+<div class="result" id="result"></div>
+
+<script>
+    function predictHeartDisease() {
+        var form = document.getElementById("heartDiseaseForm");
+        var age = parseInt(form.elements["age"].value);
+        var sex = form.elements["sex"].value;
+        var cp = parseInt(form.elements["cp"].value);
+        var trestbps = parseInt(form.elements["trestbps"].value);
+        var fbs = parseInt(form.elements["fbs"].value);
+        var rer = parseInt(form.elements["rer"].value);
+        var mhra = parseInt(form.elements["mhra"].value);
+        var Eia = parseInt(form.elements["Eia"].value);
+        var sdibertr = parseInt(form.elements["sdibertr"].value);
+        var sopes = parseInt(form.elements["sopes"].value);
+        var nmv = parseInt(form.elements["nmv"].value);
+        var tha = parseInt(form.elements["tha"].value);
+
+        // Simple prediction logic (This is just an example and not accurate)
+        var prediction = "You do not have heart disease.";
+        if ( cp =='3' && cp =='4'  && chol > 200 && tha =='3' && tha == '4'  && sopes =='3' && sopes == '4' && Eia=='1' && fbs =='1' && rer =='2' && rer =='3') {
+            prediction = "You may have to Concern the Doctor.";
+        }
+       
+        if ( cp =='2' && tha =='2' && sopes =='2' ) {
+            prediction = "You may have to take precution to aware from heart disese.";
+        }
+
+        document.getElementById("result").innerText = prediction;
+    }
+</script>
+
+</body>
+</html>
